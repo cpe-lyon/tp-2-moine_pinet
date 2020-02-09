@@ -115,6 +115,149 @@ Enoncé : Écrivez un script qui vérifie l’existence d’un utilisateur dont 
 
 **Script :**
 
+	#!/bin/bash
+
+	if [ $# -eq 0 ]; then
+
+	    echo" $0 nom_utilisateur "
+
+	else
+
+	    while(("$#")); do
+
+		a=$(grep -w "$1" /ect/passwd|wc -l)
+
+		if [$a -eq 0 ]; then
+
+		    echo "l'utilisateur n'existe pas"
+
+		else
+
+		    echo "l'utilisateur existe"
+
+		 fi
+
+	    shift
+
+	    done
+
+	fi
 
 
+### Exercice n°5
 
+Enoncé : Écrivez un programme qui calcule la factorielle d’un entier naturel passé en paramètre (on supposera que l’utilisateur saisit toujours un entier naturel).
+
+**Script :**
+
+	#!/bin/bash
+
+	facto() {
+
+	n=$1
+
+	if [[ $n = 0 ]]; then
+
+		echo 1
+
+	else
+
+		echo$(( n * $( facto $(( n-1 )) ) ))
+
+	fi
+
+	}
+
+	echo$( facto $1 )
+
+
+### Exercice n°6
+
+Enoncé : Écrivez un script qui génère un nombre aléatoire entre 1 et 1000 et demande à l’utilisateur de le deviner.Le programme écrira ”C’est plus!”, ”C’est moins!” ou ”Gagné!” selon les cas (vous utiliserez $RANDOM).
+
+**Script :**
+
+	#!/bin/bash
+
+	n=$(((( $RANDOMù 1000 )) + 1 ))
+
+	read -p 'proposer un nombre' nb
+
+	while [[ $nb != $n ]]
+
+	do
+
+	if [[ $nb < $n ]];then
+
+		echo " c est +"
+
+		read -p 'propose un nombre' nb
+
+	else
+
+		echo " c est -"
+
+		read -p 'propose un nombre' nb
+
+	fi
+
+	done
+
+	echo ' c est ca, bien joué '
+
+
+### Exercice n°7
+
+Enoncé : 
+
+1.Écrivez un script qui prend en paramètres trois entiers (entre -100 et +100) et aﬀiche le min, le maxet la moyenne. Vous pouvez réutiliser la fonction de l’exercice 3 pour vous assurer que les paramètressont bien des entiers.
+2.Généralisez le programme à un nombre quelconque de paramètres (pensez àSHIFT)
+3.Modifiez votre programme pour que les notes ne soient plus données en paramètres, mais saisies etstockées au fur et à mesure dans un tableau.
+
+**Script :**
+
+
+	#!/bin/bash
+
+	read -p 'entre 3 entiers entre -100 et 100' a b c 
+
+	if [[ $a < $b ]]; then
+
+		if [[ $b < $c ]]; then
+
+			echo " le max est $c et le min est $a "
+
+		else
+
+			if [[ $a < $c ]]; then 
+
+				echo " le max est $b et le min est $a "
+
+			else
+
+				echo "le max est $b et le min est $c"
+
+			fi
+		fi
+
+	else 	if [[ $a < $c ]]; then
+
+			echo " le max est $c et le min est $b "
+
+		else
+
+			if [[ $b < $c ]]; then
+
+				echo" le max est $a et le min est $b"
+
+			else
+
+				echo " le max est $a et le min est $c "
+
+			fi
+
+		fi
+
+	fi
+
+	echo "moyenne : $(( ($a + $b + $c) / 3))"
