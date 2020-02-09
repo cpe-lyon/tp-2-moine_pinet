@@ -115,6 +115,6 @@ Enoncé : Écrivez un script qui vérifie l’existence d’un utilisateur dont 
 
 **Script :**
 
-
+TEST PUTIN DE BORDEL DE MERDE
 
 
