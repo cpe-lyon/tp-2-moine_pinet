@@ -57,19 +57,19 @@ Enoncé : Écrivez un script "testpwd.sh" qui demande de saisir un mot de passe 
 
 **Script :**
 
-#!/bin/bash                       #permet de commencer un script bash
+	#!/bin/bash                       #permet de commencer un script bash
 
-read -s -p  'Entre mdp:' mdp      #demande à l'utilisateur de rentrer un mot de passe
+	read -s -p  'Entre mdp:' mdp      #demande à l'utilisateur de rentrer un mot de passe
 
-if [ $mdp = "password" ]; then    #vérification si le mot de passe est bon
+	if [ $mdp = "password" ]; then    #vérification si le mot de passe est bon
 
-	echo "mdp correct"
-  
-else
+		echo "mdp correct"
 
-	echo "mdp incorrect" 
-  
-fi    #permet de fermer une boucle "if"
+	else
+
+		echo "mdp incorrect" 
+
+	fi    #permet de fermer une boucle "if"
 
 
 ### Exercice n°3
@@ -79,33 +79,33 @@ Enoncé : Ecrivez un script qui prend un paramètre et utilise la fonction suiva
 
 **Script :**
 
-#!/bin/bash
+	#!/bin/bash
 
-function is_number
+	function is_number
 
-{       
+	{       
 
-	re='^[+-]?[0-9]+([.][0-9]+)?$'     #identification de la signature d'un nombre réel
+		re='^[+-]?[0-9]+([.][0-9]+)?$'     #identification de la signature d'un nombre réel
 
-	if  [[ $1 =~  $re ]] ; then        #test si le premier argument de la fonction est un réel
-  
-		echo  "reel"
-    
-		return 1
-    
-	else
-  
-		echo "error"
-    
-		return 0
-    
-	fi
-  
-}
+		if  [[ $1 =~  $re ]] ; then        #test si le premier argument de la fonction est un réel
 
-read -p 'Saisir un nombre réel' a     #saisi du nombre par l'utilisteur
+			echo  "reel"
 
-echo "  on a $( is_number $a ) "
+			return 1
+
+		else
+
+			echo "error"
+
+			return 0
+
+		fi
+
+	}
+
+	read -p 'Saisir un nombre réel' a     #saisi du nombre par l'utilisteur
+
+	echo "  on a $( is_number $a ) "
 
 
 ### Exercice n°4
@@ -115,35 +115,6 @@ Enoncé : Écrivez un script qui vérifie l’existence d’un utilisateur dont 
 
 **Script :**
 
-#!/bin/bash
-
-ctrl_usr () {
-
-
-$(cut -f1 -d: /etc/passwd)
-
-for us in $(ls)
-
-do
-
-	if  [[ $1 = $us ]] ; then
-  
-		echo "usr exist"
-    
-		return 1
-    
-	else 
-  
-		echo "usr don't exist"
-    
-		return 0
-    
-	fi
-  
-done
-
-}
-$( ctrl_usr $us)
 
 
 
