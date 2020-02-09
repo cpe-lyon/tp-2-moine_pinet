@@ -210,9 +210,9 @@ Enoncé : Écrivez un script qui génère un nombre aléatoire entre 1 et 1000 e
 
 Enoncé : 
 
-1.Écrivez un script qui prend en paramètres trois entiers (entre -100 et +100) et aﬀiche le min, le maxet la moyenne. Vous pouvez réutiliser la fonction de l’exercice 3 pour vous assurer que les paramètressont bien des entiers.
-2.Généralisez le programme à un nombre quelconque de paramètres (pensez àSHIFT)
-3.Modifiez votre programme pour que les notes ne soient plus données en paramètres, mais saisies etstockées au fur et à mesure dans un tableau.
+1. Écrivez un script qui prend en paramètres trois entiers (entre -100 et +100) et aﬀiche le min, le maxet la moyenne. Vous pouvez réutiliser la fonction de l’exercice 3 pour vous assurer que les paramètressont bien des entiers.
+2. Généralisez le programme à un nombre quelconque de paramètres (pensez àSHIFT)
+3. Modifiez votre programme pour que les notes ne soient plus données en paramètres, mais saisies etstockées au fur et à mesure dans un tableau.
 
 **Script :**
 
